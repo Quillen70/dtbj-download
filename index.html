@@ -16,13 +16,13 @@ body{
   color:#2C2416;
 }
 .wrap{max-width:520px;margin:0 auto;}
-h1{font-size:24px;margin:0 0 8px;}
-.sub{font-size:14px;color:#5b564b;margin:0 0 22px;line-height:1.6;}
+h1{font-size:26px;margin:0 0 6px;}
+.sub{font-size:14px;color:#5b564b;margin:0 0 24px;line-height:1.6;}
 .card{
-  background:rgba(255,255,255,.85);
-  border-radius:14px;
-  padding:18px 16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  background:rgba(255,255,255,.9);
+  border-radius:16px;
+  padding:22px 18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
   text-align:left;
 }
 .meta{
@@ -31,29 +31,34 @@ h1{font-size:24px;margin:0 0 8px;}
   flex-wrap:wrap;
   font-size:13px;
   color:#5b564b;
-  margin:0 0 12px;
+  margin-bottom:14px;
 }
 .badge{
-  padding:6px 10px;
+  padding:6px 12px;
   border-radius:999px;
   background:rgba(212,175,55,.14);
   border:1px solid rgba(212,175,55,.35);
   color:#2C2416;
 }
 ul{
-  margin:10px 0 0;
+  margin:12px 0 0;
   padding:0 0 0 18px;
   line-height:1.7;
   font-size:14px;
 }
-.actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+.actions{
+  margin-top:22px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 .btn{
   flex:1 1 160px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 16px;
-  border-radius:10px;
+  padding:15px 16px;
+  border-radius:12px;
   text-decoration:none;
   font-size:16px;
   font-weight:600;
@@ -62,27 +67,18 @@ ul{
 .btn-primary{
   background:#D4AF37;
   color:#fff;
-  box-shadow:0 8px 18px rgba(212,175,55,.28);
+  box-shadow:0 8px 20px rgba(212,175,55,.28);
 }
 .btn-ghost{
-  background:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.8);
   color:#2C2416;
   border:1px solid rgba(0,0,0,.08);
 }
-.tip{
-  margin-top:16px;
-  color:#666;
+.footer-note{
+  margin-top:18px;
   font-size:13px;
-  line-height:1.7;
-}
-.mono{
-  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-  font-size:12px;
-  word-break:break-all;
-  background:rgba(0,0,0,.03);
-  padding:10px;
-  border-radius:10px;
-  margin-top:8px;
+  color:#777;
+  line-height:1.6;
 }
 .mask{
   position:fixed;
@@ -130,19 +126,19 @@ ul{
 <body>
 <div class="wrap">
   <h1>滴天宝鉴</h1>
-  <p class="sub">八字排盘 · 真太阳时换算 · 命盘保存与收藏 · 会员功能支持</p>
+  <p class="sub">八字排盘 · 真太阳时换算 · 命盘保存 · 会员功能支持</p>
 
   <div class="card">
     <div class="meta">
       <span class="badge">版本 v1.0.0</span>
       <span class="badge">更新 2026-02-20</span>
-      <span class="badge" id="envBadge">环境检测中</span>
+      <span class="badge" id="envBadge">检测中</span>
     </div>
 
     <ul>
+      <li>官方版本 · 安全下载</li>
       <li>支持安卓设备安装</li>
-      <li>微信 / QQ 内无法直接下载</li>
-      <li>如浏览器提示风险，请选择保留文件</li>
+      <li>无广告 · 无插件</li>
     </ul>
 
     <div class="actions">
@@ -159,11 +155,8 @@ ul{
       </a>
     </div>
 
-    <div class="tip">
-      文件校验 SHA256：
-      <div class="mono">
-        c4ceee2888acdba32c279d741aa5a7db66a1d130219e54b5e2287843e6dc32ec
-      </div>
+    <div class="footer-note">
+      如在微信 / QQ 内无法下载，请点击右上角菜单，选择“在浏览器打开”后下载。
     </div>
   </div>
 </div>
@@ -172,7 +165,7 @@ ul{
   <div class="card2">
     <div class="arrow"></div>
     <p class="t1">当前环境无法直接下载 APK</p>
-    <p class="t2">请通过系统浏览器访问后下载。</p>
+    <p class="t2">请通过系统浏览器访问后下载安装。</p>
     <a class="close" href="javascript:void(0)" id="closeBtn">关闭</a>
   </div>
 </div>
