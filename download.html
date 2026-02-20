@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>下载滴天宝鉴</title>
+
+<style>
+body {
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#FFF8DC,#FEF9E7);
+  text-align:center;
+  padding:60px 20px;
+}
+
+h1 {
+  font-size:24px;
+  color:#2C2416;
+}
+
+.button {
+  margin-top:30px;
+  display:inline-block;
+  padding:15px 30px;
+  background:#D4AF37;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:18px;
+}
+
+.tip {
+  margin-top:24px;
+  color:#666;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* 微信遮罩 */
+.wx-mask{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 9999;
+  display: none;
+}
+.wx-card{
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: min(360px, calc(100vw - 28px));
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  text-align: left;
+}
+.wx-title{
+  font-size: 16px;
+  font-weight: 600;
+  color: #2C2416;
+  margin: 0 0 6px;
+}
+.wx-desc{
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+  line-height: 1.5;
+}
+.wx-arrow{
+  position: absolute;
+  right: 26px;
+  top: -10px;
+  width: 0; height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+.wx-close{
+  margin-top: 10px;
+  display: inline-block;
+  padding: 8px 12px;
+  background: rgba(212,175,55,.12);
+  border: 1px solid rgba(212,175,55,.35);
+  border-radius: 10px;
+  color: #2C2416;
+  font-size: 14px;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>滴天宝鉴 App 下载</h1>
+
+<a class="button" id="downloadBtn"
+   href="https://github.com/Quillen70/dtbj-download/releases/latest/download/default.apk">
+立即下载
+</a>
+
+<div class="tip">
+如在微信内无法下载，请点击右上角 ···<br>
+选择「在浏览器打开」后再下载
+</div>
+
+<!-- 微信遮罩 -->
+<div class="wx-mask" id="wxMask">
+  <div class="wx-card">
+    <div class="wx-arrow"></div>
+    <p class="wx-title">微信内无法直接下载 APK</p>
+    <p class="wx-desc">请点击右上角「···」→ 选择「在浏览器打开」后再下载。</p>
+    <a class="wx-close" href="javascript:void(0)" id="wxClose">我知道了</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ua = navigator.userAgent.toLowerCase();
+  var isWeChat = ua.indexOf('micromessenger') !== -1;
+
+  if (isWeChat) {
+    // 微信内直接提示，并阻止用户误点下载（点了也多数会失败）
+    var mask = document.getElementById('wxMask');
+    var btn = document.getElementById('downloadBtn');
+    mask.style.display = 'block';
+
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      mask.style.display = 'block';
+    });
+
+    document.getElementById('wxClose').addEventListener('click', function(){
+      mask.style.display = 'none';
+    });
+
+    mask.addEventListener('click', function(){
+      mask.style.display = 'none';
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
