@@ -69,11 +69,6 @@ ul{
   color:#fff;
   box-shadow:0 8px 20px rgba(212,175,55,.28);
 }
-.btn-ghost{
-  background:rgba(255,255,255,.8);
-  color:#2C2416;
-  border:1px solid rgba(0,0,0,.08);
-}
 .footer-note{
   margin-top:18px;
   font-size:13px;
@@ -130,33 +125,27 @@ ul{
 
   <div class="card">
     <div class="meta">
-      <span class="badge">版本 v1.0.0</span>
-      <span class="badge">更新 2026-02-20</span>
+      <span class="badge">版本 v1.0.1</span>
+      <span class="badge">更新 2026-02-22</span>
       <span class="badge" id="envBadge">检测中</span>
     </div>
 
     <ul>
-      <li>官方版本 · 安全下载</li>
       <li>支持安卓设备安装</li>
-      <li>无广告 · 无插件</li>
+      <li>如在微信 / QQ 内无法下载，请在右上角选择“在浏览器打开”</li>
+      <li>如浏览器提示风险，请选择保留文件</li>
     </ul>
 
     <div class="actions">
       <a class="btn btn-primary" id="downloadBtn"
-         href="https://github.com/Quillen70/dtbj-download/releases/latest/download/default.apk"
-         rel="noopener noreferrer" download>
-        立即下载
-      </a>
-
-      <a class="btn btn-ghost"
-         href="https://github.com/Quillen70/dtbj-download/releases"
+         href="https://github.com/Quillen70/dtbj-download/releases/latest/download/dtbj.apk"
          rel="noopener noreferrer">
-        更新记录
+        立即下载
       </a>
     </div>
 
     <div class="footer-note">
-      如在微信 / QQ 内无法下载，请点击右上角菜单，选择“在浏览器打开”后下载。
+      下载后在系统通知栏/下载列表中打开安装；如提示“禁止安装未知应用”，到系统设置里允许该浏览器安装应用。
     </div>
   </div>
 </div>
@@ -165,7 +154,7 @@ ul{
   <div class="card2">
     <div class="arrow"></div>
     <p class="t1">当前环境无法直接下载 APK</p>
-    <p class="t2">请通过系统浏览器访问后下载安装。</p>
+    <p class="t2">请点击右上角菜单，选择“在浏览器打开”后下载安装。</p>
     <a class="close" href="javascript:void(0)" id="closeBtn">关闭</a>
   </div>
 </div>
@@ -189,7 +178,7 @@ ul{
   if(isAndroid) env.push("Android");
   if(isiOS) env.push("iOS");
 
-  document.getElementById("envBadge").textContent=env.length?env.join(" / "):"浏览器";
+  document.getElementById("envBadge").textContent = env.length ? env.join(" / ") : "浏览器";
 
   if(isWeChat||isQQ){
     var mask=document.getElementById("mask");
@@ -199,12 +188,21 @@ ul{
       e.preventDefault();
       mask.style.display="block";
     });
-    document.getElementById("closeBtn").onclick=function(){
+    document.getElementById("closeBtn").onclick=function(e){
+      e.preventDefault();
       mask.style.display="none";
     };
     mask.onclick=function(){
       mask.style.display="none";
     };
+  }
+
+  if(isiOS){
+    var note = document.createElement("div");
+    note.className = "footer-note";
+    note.style.marginTop = "12px";
+    note.textContent = "iPhone/iPad 无法安装 APK，请使用安卓设备下载。";
+    document.querySelector(".card").appendChild(note);
   }
 })();
 </script>
